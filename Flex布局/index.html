@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>Flex布局</title>
 	<style type="text/css">
 	.box {
 		border:1px #000 solid;
 		width: 306px;
 		height: 306px;
-		margin-bottom: 20px;
+		margin-top: 20px;
 	}
 	.item {
 		width: 100px;
@@ -19,7 +20,8 @@
 
 	.box0 {
 		display: flex;
-		flex-direction: column-reverse;
+/* 		flex-direction: column-reverse; */
+		flex-direction: column;
 	}
 
 	.box1 {
@@ -50,9 +52,111 @@
 		align-content: space-between; */
 	}
 
+	.Grid {
+		display: flex;
+		height: 200px;
+		border: 1px #333 solid;
+		flex-wrap:wrap;
+		justify-content: space-around;
+
+	}
+	.Grid-cell {
+		/* flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。 */
+		flex: 1;        
+		width: 100px;
+		height: 100px;
+		border: 1px yellow solid;
+		background: #ddd; 
+	}
+ 	.Grid:after {
+		content: "网格布局";
+	} 
+	.Grid-cell1 {
+		flex: 0 0 50%;
+	}
+	.Grid-cell2 {
+		flex: 0 0 30%;
+	}
+	.Grid-cell3 {
+		flex: 0 0 8%;
+	}
+	.Grid-cell4 {
+		flex: 0 0 8%;
+	}
+
+	.holy-grail {
+		display: flex;
+ 		min-height: 400px; 
+		border:1px #ddd solid;
+		flex-direction: column;
+		margin-bottom: 20px;
+	}
+	header, footer {
+		/* flex: 1即flex-grow: 1; 如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。*/
+		flex: 1;
+		background: #ccc;
+		border:1px #ddd solid;
+		text-align: center;
+	}
+	header:before {
+		content: "header";
+	}
+	footer:before {
+		content: "footer";
+	}
+	.nav:before {
+		content: "nav";
+	}
+	.ads:before {
+		content: "ads";
+	}
+	.content:before {
+		content: "content";
+	}
+	.holyGrail-body {
+		display: flex;
+		flex: 3;
+		text-align: center;
+	}
+	.nav, .ads {
+		border: 1px yellow solid;
+		flex: 1;
+	}
+	.content {
+		border: 1px yellow solid;
+		flex: 3;
+	}
+	@media(max-width: 768px) {
+		.holyGrail-body {
+			flex-direction: column;
+		}
+		.nav, .content, .ads {
+			flex: auto;
+		}
+	}
+
+
 	</style>
 </head>
 <body class="box0">
+	<div class="holy-grail">
+		<header></header>
+		<div class="holyGrail-body">
+			<div class="nav"></div>
+			<div class="content"></div>
+			<div class="ads"></div>
+		</div>
+		<footer></footer>
+	</div>
+
+
+	<div class="Grid">
+		<div class="Grid-cell Grid-cell1"></div>
+		<div class="Grid-cell Grid-cell2"></div>
+		<div class="Grid-cell Grid-cell3"></div>
+		<div class="Grid-cell Grid-cell4"></div>
+	</div>
+
 	<div class="box box1">
 		<div class="item"></div>
 	</div>
@@ -72,6 +176,6 @@
 		<div class="item item4"></div>
 		<div class="item item4"></div>
 		<div class="item item4"></div>
-	</div>
+	</div> 
 </body>
 </html>

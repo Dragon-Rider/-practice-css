@@ -1,0 +1,2 @@
+1. 不要忘记在开头引入这一行，在手机屏幕上会自动调整布局。
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
