@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>利用translate属性居中</title>
+	<style type="text/css">
+		.outer {
+			border: 1px solid red;
+			position: relative;
+			height:300px;
+		}
+		.inner {
+			background-color: red;
+			padding: 10px;
+			width: 100px;
+			height: 100px;
+			border: 10px solid yellow;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+
+	<p>1. translate 函数当中使用百分比是以该元素的内容区、补白(padding)、边框(border)为标准计算的。</p>
+	<p>2. 使用 translate 的例子的 offsetTop 和 offsetLeft 的数值与没有产生位移的元素没有然后区别，无论位移多少这两个数值都是固定不变的。而使用相对定位的例子 offsetTop 和 offsetLeft 的数值则根据位移的长度发生了改变。</p>
+</body>
+</html>
