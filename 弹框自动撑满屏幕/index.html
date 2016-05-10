@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹框自动撑满屏幕</title>
+</head>
+<style type="text/css">
+    .mask{
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        zoom: 1;
+        opacity: 0.4;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 499;
+    }
+    .alert-popup {
+        border-radius: 4px;
+        background-color: #fff;
+        position: absolute;
+        /*注意这里left，right的写法*/
+        left: 15px;
+        right: 15px;  
+        top: 60px;
+        z-index: 500;
+    }
+
+</style>
+<body>
+    <div class="mask"></div>
+    <div class="alert-popup">123</div>
+</body>
+</html>
