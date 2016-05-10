@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vertical-align行内垂直居中</title>
+</head>
+<style type="text/css">
+    .outter {
+        height: 45px;
+        line-height: 45px;
+        border: 1px red solid;
+    }
+
+    .mtb-radio-sm{
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAV1BMVEUAAADIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj////IyMjy8vL6+vrp6enj4+PW1tbS0tLR0dHMzMxpJP3fAAAAE3RSTlMA8+j6zYeCazw2vkUev7w0IB0198gTAAAAAMxJREFUOMuFk9sSgyAMRCMq9VYvZVFQ//87izOtiMLkvGaHDUmWLlSyF3kuellRhKkUOBHlRDdeuPEKykMBx2b0rNSszQZHMVzMMwBWqxNtAWRnK/VRX1TAcijqn6AAdq1u6N25+P583Sv+nXb+/adL5wQlYFUUC5ROkHmDp0lG1AKrSrACLUnApAQGkNR4h5jHmwQwpwQzICgHVBIgZwWsBdsk+012UNyo2WWx6+YPhj85/mj5s3d8YsGp2eiFjGF4R4pQyeaIfxPE/wtiJjtGZQx6qAAAAABJRU5ErkJggg==) no-repeat;
+        background-size: 100% 100%;
+        vertical-align: middle;
+    }
+    .text {
+        vertical-align: middle;
+    }
+    /*Note: vertical-align这个属性是放在子元素上的，将把具有此属性的元素放置在父元素的中部。
+      http://www.w3school.com.cn/cssref/pr_pos_vertical-align.asp*/
+</style>
+<body>
+
+    <div class="outter">
+        <i class="mtb-radio-sm"></i>
+        <span class="text">我是居中文案</span>
+    </div>
+</body>
+</html>
