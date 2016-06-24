@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mm站订单详情页布局</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+<!-- http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html -->
+<style type="text/css">
+    * {
+        padding:0; 
+        margin:0;
+    } 
+
+   .list {
+        display: flex;
+        padding: 15px 20px 30px;
+        border: 1px #333 solid;
+    }
+   ul.list li {
+        flex:1 1 auto;
+        /*
+            容器属性display: flex;这个flex使li内的元素也设置为flex的。
+            这样before的dashed border可以自适应长度通过设置flex：1 1 auto，但是div小块固定了长度通过设置flex：0 0 auto;
+        */
+        display: flex; 
+        list-style-type: none;
+        align-items: center; /*容器属性：设定项目的在交叉轴如何对齐*/
+    }
+
+    /*
+        通过设置第一个li固定大小，后三个li自适应，三分容器，再通过before插入dashed border将div挤到右面。
+        这样最右的yellow div块也靠右了，间接实现了容器属性justify-content:space-between的效果，同时还插入了dashed border
+    */
+    .list li:first-child {
+        flex: 0 0 auto;    /*项目属性：这组值使项目不随空间的改变放大缩小而改变*/
+    }
+    .list li:not(:first-child):before {   
+        border: 1px #65c07a dashed;
+        flex:1 1 auto;   /*项目属性：这组值使项目随空间的改变放大缩小而自适应*/
+        content: '';
+        height: 0;  
+    }
+    .status-container {
+        position: relative;
+    }
+    .item {
+        width: 30px;
+        height: 30px;
+    }
+    .item-text {
+        font-size: 12px;
+        color: #999;
+        position: absolute;
+        top: 36px; 
+        width: 80px;
+        left: 50%;
+        margin-left: -40px;
+        text-align: center;
+    }
+    .bgColor-red{background-color: red;}
+    .bgColor-green{background-color: green;}
+    .bgColor-blue{background-color: blue;}
+    .bgColor-yellow{background-color: yellow;}
+
+    
+</style>
+
+<body>
+    <ul class="list">
+        <li>
+            <div class="status-container">
+                <div class="item bgColor-red"></div>
+                <p class="item-text">文字</p>
+            </div>
+        </li>
+        <li>
+            <div class="status-container">        
+                <div class="item bgColor-green"></div>
+                <p class="item-text">测试文字文字</p>
+            </div>
+        </li>
+        <li>
+            <div class="status-container">            
+                <div class="item bgColor-blue"></div>
+                <p class="item-text">测试文字</p>
+            </div>
+        </li>
+        <li>
+            <div class="status-container">
+                <div class="item bgColor-yellow"></div>
+                <p class="item-text">测试文字</p>
+            </div>
+        </li>
+    </ul>
+</body>
+</html>
